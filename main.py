@@ -1,6 +1,7 @@
 import random, MaleNames, FemaleNames, Surnames, Calls
 
 money = 100
+callOne, callTwo, callThree, callFour = False, False, False, False
 
 def generateName(gender):
   if gender == 'male':
@@ -250,11 +251,15 @@ while True:
       print('You do not have any janitors to train.')
   if random.randint(1, 10) != 1:
     num = random.randint(1, 4)
-    if num == 1:
+    if num == 1 and not callOne:
       money += Calls.call1()
-    elif num == 2:
+      callOne = True
+    elif num == 2 and not callTwo:
       money += Calls.call2()
-    elif num == 3:
+      callTwo = True
+    elif num == 3 and not callThree:
       money += Calls.call3()
-    elif num == 4:
+      callThree = True
+    elif num == 4 and not callFour:
       money += Calls.call4(money)
+      callFour = True

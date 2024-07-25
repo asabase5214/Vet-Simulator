@@ -117,7 +117,8 @@ def call3():
       print('YOU: Uh, sure, why not! CALLER: Okay, I\'ll be there in a few minutes. Thank you.')
       clinic = True
     elif answer == '2':
-      print('YOU: No, the dog will die if you do that! CALLER: Oh! Sorry, I didn\'t know that. *krkshksshhsshhhh* (muffled): Hey! Hey come back here! I\'m trying to save you! *CRASH*')
+      print('YOU: No, the dog will die if you do that! CALLER: Oh! Sorry, I didn\'t know that. *krkshksshhsshhhh* (muffled): Hey! Hey come back here! I\'m trying to save you- *CRASH*')
+      print('Call ended')
     elif answer == '3':
       print(f'YOU: If you feel safe putting the dog in you trunk, that\'s fine, but you may have to clean your trunk later. CALLER: Okay, I\'ll be there in a few minutes. Thank you.')
       clinic = True
@@ -132,6 +133,10 @@ def call3():
       clinic = True
     elif answer == '2':
       print('YOU: Try calling the phone number on the collar. CALLER: Okay. Bye.')
+  if clinic:
+    earned = random.randint(40, 100)
+    print(f'The caller arrives, and their dog is taken care of. You earn {earned} dollars.')
+    return earned
 
 def call4(money):
   print(f'YOU: Hello, West Valley Clinic, how may I help you? CALLER: Hello, this is the IRS. We have noticed some irregularities in your tax filings. You owe a substantial amount of money and it needs to be paid immediately to avoid severe consequences.')
@@ -163,4 +168,121 @@ def call4(money):
     elif answer == '2':
       print('YOU: I\'m sorry, but I can\'t do that. CALLER: Suit yourself. Remember, the consequences are on you.')
       print('The call ends.')
+  return 0
+
+def call5():
+  print(f'YOU: Hello, West Valley Clinic, how may I help you? CALLER: Hello. I have a cat named Emmie. She has been acting strangely lately, not eating or drinking, barely sleeping. What should I do?')
+  print()
+  print('1. That doesn\'t sound very good. Bring to the clinic when you can, and we\'ll see what we can do.')
+  print('2. Uh oh. Sounds like your cat is going to die. I\'m sorry. If you want you could, like, come here, and we could kill her with our... what\'re they called? Ah, yes we could euthanize her if ya like.')
+  answer = input('> ')
+  if answer == '1':
+    print('YOU: That doesn\'t sound very good. Bring to the clinic when you can, and we\'ll see what we can do. CALLER: Is tommorrow at 8:30 am okay? YOU: Yes that\'s fine. CALLER: Okay, thank you. Goodbye.')
+    clinic = True
+  elif answer == '2':
+    print('YOU: Uh oh. Sounds like your cat is going to die. I\'m sorry. If you want you could, like, come here, and we could kill her with our... what\'re they called? Ah, yes we could euthanize her if ya like. CALLER: What?! No! Emmie! I can\'t bear the thought of losing her! I\'ve had for eleven years. She\'s helped me through some terrible times. [pauses] I wish I could have spent more time with her. I\'m sorry. Goodbye.')
+  if clinic:
+    earned = random.randint(40, 100)
+    print(f'The caller arrives, and their cat is taken care of. You earn {earned} dollars.')
+    return earned
+  return 0
+
+def call6():
+  print('YOU: Hello, West Valley Clinic, how may I help you? CALLER: Hello, I have an eight-year-old cat who has been consistantly losing weight over the past few days. I would like to schedule an appointment for her with you. When is the soonest convienient time?')
+  print()
+  print('1. Will monday, at 10 work for you? (suggest a convenient time)')
+  print('2. Your cat is probably fine. I do not think that it is neccassary to schedule an appointment.')
+  answer = input('> ')
+  if answer == '1':
+    print('YOU: Will monday, at 10 work for you? CALLER: Yeah, that works. Thank you.')
+    clinic = True
+  elif answer == '2':
+    print(f'YOU: Your cat is probably fine. I do not think that it is neccassary to schedule an appointment. CALLER: Okay, if you say so. Goodbye.')
+  if clinic:
+    earned = random.randint(40, 100)
+    print(f'The caller arrives, and their elderly cat is taken care of. You earn {earned} dollars.')
+    return earned
+  return 0
+
+def call7():
+  print('YOU: Hello, West Valley Clinic, how may I help you? CALLER: Hello, I have a two-week old puppy named Bella. I wanted to know if symptoms of vomiting and diarrhea are concerning at this age.')
+  print()
+  print('1. Um, yeah, you should probably get that checked out.')
+  print('2. No, that\'s very normal for puppies at that age. You shouldn\'t be concerned.')
+  answer = input('> ')
+  if answer == '1':
+    print('YOU: Um, yeah, you should probably get that checked out. CALLER: Alright. I will be there soon. Thank you.')
+    clinic = True
+  elif answer == '2':
+    print(f'YOU: No, that\'s very normal for puppies at that age. You shouldn\'t be concerned. CALLER: Okay, thank you. Goodbye.')
+  if clinic:
+    earned = random.randint(40, 100)
+    print(f'The caller arrives, and Bella is taken care of. You earn {earned} dollars.')
+    return earned
+  return 0
+
+def call8():
+  print(f'YOU: Hello, West Valley Clinic, how may I help you? CALLER: Hello, my cat just had a litter of kittens. I was going to ask about the cost of spaying and neutering at you clinic?')
+  print()
+  print('1. Spaying or neutering here at West Valley can cost between $50 and $200, depending on the size and weight of your cat.')
+  print('2. I think Larry said that it costs, like 15 or 20 dollars.')
+  answer = input('> ')
+  if answer == '1':
+    print('YOU: Spaying or neutering here at West Valley can cost between $50 and $200, depending on the size and weight of your cat. CALLER: Okay, thank you. Goodbye.')
+    clinic = True
+  elif answer == '2':
+    print(f'YOU: I think Larry said that it costs, like 15 or 20 dollars. CALLER: Okay, thank you. Goodbye.')
+  if clinic:
+    earned = random.randint(50, 200)
+    print(f'The caller arrives, and their cat is taken care of. You earn {earned} dollars.')
+    return earned
+  else:
+    print('The cat owner arrives, and finds out that it actually costs between 50 and 200 dollars to spay and neuter a cat. They are very upset. They leave the clinic, and you do not earn any money.')
+    return 0
+
+def call9():
+  print(f'YOU: Hello, West Valley Clinic, how may I help you? CALLER: Hello! My dog, Genevieve, just got bit by another dog at the dog park! I don\'t know what to do, and I don\'t know when the last time Geny got her rabies shot! Is she going to be okay?!')
+  print()
+  print('1. Woah, calm down. Did the dog that bit her have an owner?')
+  print('2. Yup, sounds like rabies! If you don\'t show up here soon, your dog will die!')
+  answer = input('> ')
+  if answer == '1':
+    print('YOU: Woah, calm down. Did the dog that bit her have an owner? CALLER: Y-Yeah, it did.')
+    print()
+    print('1. Okay, unless the dog that bit her is foaming at the mouth, you should be fine. Although, depending on where the bite is, you should get it looked at just in case.')
+    print('2. Then go talk to the owner and ask if the dog has rabies.')
+    answer = input('> ')
+    if answer == '1':
+      print('YOU: Okay, unless the dog that bit her is foaming at the mouth, you should be fine. Although, depending on where the bite is, you should get it looked at just in case. CALLER: Okay, thank you. I am going to be there soon, just in case. Goodbye.')
+      clinic = True
+    elif answer == '2':
+      print('YOU: Then go talk to the owner and ask if the dog has rabies. CALLER: Um, okay. [pause] The owner says his dog doesn\'t have rabies. Thank you. Goodbye.')
+  elif answer == '2':
+    print(f'YOU: Yup, sounds like rabies! If you don\'t show up here soon, your dog will die! CALLER: Oh no! Geny, come here, girl. Come here! I\'m going to be there soon. Thank you.')
+    clinic = True
+  if clinic:
+    earned = random.randint(50, 200)
+    print(f'The caller arrives, and their dog is taken care of. You earn {earned} dollars.')
+    return earned
+  return 0
+
+def call10():
+  print('YOU: Hello, West Valley Clinic, how may I help you? CALLER: Hello, I was calling about my dog, Benjamin, who has been scratching excessively for a few days. I\'m worried he has fleas.')
+  print()
+  print('1. That does sound like fleas, but has he had any flea medicine lately?')
+  print('2. Yup, sounds like fleas. Get here quick!')
+  print('3. No, I don\'t think he has any fleas.')
+  answer = input('> ')
+  if answer == '1':
+    print('YOU: That does sound like fleas, but has he had any flea medicine lately? CALLER: No, I\'ve never given him flea medicine. You know what, I\'ll just come by this afternoon. Thank you.')
+    clinic = True
+  elif answer == '2':
+    print('YOU: Yup, sounds like fleas. Get here quick! CALLER: Oh! Okay, thank you. I\'m on my way.')
+    clinic = True
+  elif answer == '3':
+    print(f'YOU: No, I don\'t think he has any fleas. CALLER: Oh, good, I\'m relieved. Thank you.')
+  if clinic:
+    earned = random.randint(20, 70)
+    print(f'The caller arrives, and their dog is taken care of. You earn {earned} dollars.')
+    return earned
   return 0
