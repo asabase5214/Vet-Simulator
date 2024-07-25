@@ -4,6 +4,7 @@ def randomDog():
   return random.choice(['pitbull', 'great dane', 'dalmation', 'husky', 'french bulldog', 'german shepherd', 'pomeranian', 'rottweiler', 'bulldog', 'beagle', 'poodle', 'boxer', 'shiba inu', 'black lab', 'basset hound', 'dachshund', 'golden retriever', 'german short-haired pointer', 'chihuahua', 'shih tzu', 'terrier', 'chow chow', 'german spitz', 'doberman', 'bullmastiff', 'bloodhound', 'great pyrenees', 'komondor'])
 
 def call1():
+  clinic = False
   print(f"YOU: Hello, West Valley Clinic, how may I help you? CALLER: Hello, I have a {randomDog()} and {random.choice(['he', 'she'])} just ate a s\'more that I dropped off of the ground. I know that dogs aren't supposed to have chocolate. What should I do?")
   
   print()
@@ -35,6 +36,7 @@ def call1():
     return 0
 
 def call2():
+  clinic = False
   print(f'YOU: Hello, West Valley Clinic, how may I help you? CALLER: Hello, I have a {randomDog()} and I think he just got bit by a snake! I don\'t know what to do. What should I do?')
   print()
   print('1. Okay, what kind of snake is it?')
@@ -101,10 +103,11 @@ def call2():
     return 0
 
 def call3():
+  clinic = False
   print(f'YOU: Hello, West Valley Clinic, how may I help you? CALLER: Hello, I just found a {randomDog()} in the middle of the road. He doesn\'t look too good, I think he\'s bleeding in some places. What should I do?')
   print()
   print('1. Okay, you need to get to the clinic as soon as possible.')
-  print('Does it have a collar?')
+  print('2. Does it have a collar?')
   answer = input('> ')
   if answer == '1':
     print('YOU: Okay, you need to get to the clinic as soon as possible. CALLER: Um, I don\'t have a crate or anything. Can I just put the dog in my trunk?')
@@ -171,6 +174,7 @@ def call4(money):
   return 0
 
 def call5():
+  clinic = False
   print(f'YOU: Hello, West Valley Clinic, how may I help you? CALLER: Hello. I have a cat named Emmie. She has been acting strangely lately, not eating or drinking, barely sleeping. What should I do?')
   print()
   print('1. That doesn\'t sound very good. Bring to the clinic when you can, and we\'ll see what we can do.')
@@ -188,6 +192,7 @@ def call5():
   return 0
 
 def call6():
+  clinic = False
   print('YOU: Hello, West Valley Clinic, how may I help you? CALLER: Hello, I have an eight-year-old cat who has been consistantly losing weight over the past few days. I would like to schedule an appointment for her with you. When is the soonest convienient time?')
   print()
   print('1. Will monday, at 10 work for you? (suggest a convenient time)')
@@ -205,6 +210,7 @@ def call6():
   return 0
 
 def call7():
+  clinic = False
   print('YOU: Hello, West Valley Clinic, how may I help you? CALLER: Hello, I have a two-week old puppy named Bella. I wanted to know if symptoms of vomiting and diarrhea are concerning at this age.')
   print()
   print('1. Um, yeah, you should probably get that checked out.')
@@ -222,6 +228,7 @@ def call7():
   return 0
 
 def call8():
+  clinic = False
   print(f'YOU: Hello, West Valley Clinic, how may I help you? CALLER: Hello, my cat just had a litter of kittens. I was going to ask about the cost of spaying and neutering at you clinic?')
   print()
   print('1. Spaying or neutering here at West Valley can cost between $50 and $200, depending on the size and weight of your cat.')
@@ -241,6 +248,7 @@ def call8():
     return 0
 
 def call9():
+  clinic = False
   print(f'YOU: Hello, West Valley Clinic, how may I help you? CALLER: Hello! My dog, Genevieve, just got bit by another dog at the dog park! I don\'t know what to do, and I don\'t know when the last time Geny got her rabies shot! Is she going to be okay?!')
   print()
   print('1. Woah, calm down. Did the dog that bit her have an owner?')
@@ -267,6 +275,7 @@ def call9():
   return 0
 
 def call10():
+  clinic = False
   print('YOU: Hello, West Valley Clinic, how may I help you? CALLER: Hello, I was calling about my dog, Benjamin, who has been scratching excessively for a few days. I\'m worried he has fleas.')
   print()
   print('1. That does sound like fleas, but has he had any flea medicine lately?')
@@ -286,3 +295,23 @@ def call10():
     print(f'The caller arrives, and their dog is taken care of. You earn {earned} dollars.')
     return earned
   return 0
+
+def call11():
+  clinic = False
+  print(f'YOU: Hello, West Valley Clinic, how may I help you? CALLER: Hello, I wanted to ask about the process of getting an animal microchipped.')
+  print()
+  print('1. To get your animal microchipped, we will put the animal to sleep, and then perform a small surgery to open up the animal, usually between the sholder blades, and insert a microchip into the animal. After that, we will show you how to register your animal\'s microchip.')
+  print('2. To get your animal microchipped, we actually don\'t put the animal to sleep. We use a needle to inject a microchip into the animal. After that, we will show you how to register your animal\'s microchip.')
+  answer = input('> ')
+  if answer == '1':
+    print('YOU: To get your animal microchipped, we will put the animal to sleep, and then perform a small surgery to open up the animal, usually between the sholder blades, and insert a microchip into the animal. After that, we will show you how to register your animal\'s microchip. CALLER: Okay, thank you. Can I schedule a microchipping for my dog on Wednesday? YOU: Yes, that\'s fine. CALLER: Okay, thank you. Goodbye.')
+  elif answer == '2':
+    print(f'YOU: To get your animal microchipped, we actually don\'t put the animal to sleep. We use a needle to inject a microchip into the animal. After that, we will show you how to register your animal\'s microchip. CALLER: Okay, thank you. Can I schedule a microchipping for my dog on Wednesday? YOU: Yes, that\'s fine. CALLER: Okay, thank you. Goodbye.')
+    clinic = True
+  if clinic:
+    earned = random.randint(25, 50)
+    print(f'The caller arrives, and their dog is taken care of. You earn ${earned}.')
+    return earned
+  else:
+    print('The dog owner arrives, and found that they were very much misinformed about the process of getting an animal microchipped. They are very upset, and they refuse to pay. You lose $35 for the cost of the microchip.')
+    return -35

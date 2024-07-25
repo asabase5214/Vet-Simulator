@@ -1,7 +1,7 @@
 import random, MaleNames, FemaleNames, Surnames, Calls
 
 money = 100
-callOne, callTwo, callThree, callFour = False, False, False, False
+callOne, callTwo, callThree, callFour, callFive, callSix, callSeven, callEight, callNine, callTen, callEleven = False, False, False, False, False, False, False, False, False, False, False
 
 def generateName(gender):
   if gender == 'male':
@@ -16,12 +16,23 @@ def generateName(gender):
 ownedDoctors = []
 ownedNurses = []
 receptionist = 'None'
+ownedjanitors = []
+cost = random.randint(60_000, 150_000)
+doctorCost = cost / 365
+cost = random.randint(30_000, 60_000)
+nurseCost = cost / 365
+cost = random.randint(25_000, 35_000)
+receptionistCost = cost / 365
+cost = random.randint(20_000, 30_000)
+janitorCost = cost / 365
 
 
 print('Welcome to West Valley Clinic! Your uncle recently retired, and has handed this clinic down to YOU! Good luck!')
 print('First things first, you need to hire some staff! To hire staff, enter \'1\' to acess the staff menu, and then choose which staff you want. You have $100 to spend on your staff. You can hire a doctor, nurse, receptionist, or a janitor.')
+input('Press ENTER to start!')
 
 while True:
+  print()
   print('1. Hire staff.')
   print('2. View staff.')
   print('3. Train staff.')
@@ -179,7 +190,58 @@ while True:
       else:
         continue
     elif answer == '4':
-      print('You cannot hire any janitors right now.')
+      print('Choose which janitor you would like to hire. Here are the available janitor(s):')
+      numOfjanitors = random.randint(1, 3)
+      janitors = []
+      janitorsDict = {}
+      for i in range(numOfjanitors):
+        gender = random.choice(['male', 'female'])
+        janitors.append(generateName(gender))
+      for i in range(numOfjanitors):
+        rating = random.randint(1, 5)
+        print(i+1, end="")
+        print('. '+janitors[i]+'.', end="")
+        print(' Rating: '+str(rating)+' stars. $'+str(10*rating))
+        janitorsDict[i+1] = [janitors[i], rating]
+      print('Enter BACK to go back to the main menu.')
+      answer = input('> ')
+      if answer == '1':
+        if money < janitorsDict[1][1]*10:
+          print('You do not have enough money to hire this janitor.')
+        else:
+          print('You have hired '+janitorsDict[1][0]+' as a janitor.')
+          money -= janitorsDict[1][1]*10
+          ownedjanitors.append(janitorsDict[1])
+      elif answer == '2' and numOfjanitors >= 2:
+        if money < janitorsDict[2][1]*10:
+          print('You do not have enough money to hire this janitor.')
+        else:
+          print('You have hired '+janitorsDict[2][0]+' as a janitor.')
+          money -= janitorsDict[2][1]*10
+          ownedjanitors.append(janitorsDict[2])
+      elif answer == '3' and numOfjanitors >= 3:
+        if money < janitorsDict[3][1]*10:
+          print('You do not have enough money to hire this janitor.')
+        else:
+          print('You have hired '+janitorsDict[3][0]+' as a janitor.')
+          money -= janitorsDict[3][1]*10
+          ownedjanitors.append(janitorsDict[3])
+      elif answer == '4' and numOfjanitors >= 4:
+        if money < janitorsDict[4][1]*10:
+          print('You do not have enough money to hire this janitor.')
+        else:
+          print('You have hired '+janitorsDict[4][0]+' as a janitor.')
+          money -= janitorsDict[4][1]*10
+          ownedjanitors.append(janitorsDict[4])
+      elif answer == '5' and numOfjanitors == 5:
+        if money < janitorsDict[5][1]*10:
+          print('You do not have enough money to hire this janitor.')
+        else:
+          print('You have hired '+janitorsDict[5][0]+' as a janitors.')
+          money -= janitorsDict[5][1]*10
+          ownedjanitors.append(janitorsDict[5])
+      else:
+        continue
   elif answer == '2':
     print('Here are your staff:')
     print('Doctor(s):')
@@ -195,7 +257,10 @@ while True:
     print('Receptionist:')
     print(receptionist[0])
     print('Janitor(s):')
-    print('None')
+    for i in range(len(ownedjanitors)):
+      print(i+1, end="")
+      print('. '+ownedjanitors[i][0]+'.', end="")
+      print(' Rating: '+str(ownedjanitors[i][1])+' stars.')
   elif answer == '3':
     print('Choose if you would like to train you doctor(s), nurse(s), receptionist, or janitor(s).')
     print('1. Doctor(s)')
@@ -248,18 +313,85 @@ while True:
             receptionist[1] += 1
             print('You have trained '+receptionist[0]+'!')
     elif answer == '4':
-      print('You do not have any janitors to train.')
+      if len(ownedjanitors) > 0:
+        for i in range(len(ownedjanitors)):
+          print(i+1, end="")
+          print('. '+ownedjanitors[i][0]+'.', end="")
+          print(' Rating: '+str(ownedjanitors[i][1])+' stars.')
+        answer = input('> ')
+        if answer == '1':
+          print(f'It will cost ${ownedjanitors[0][1]*5} to train this janitor.')
+          if money < ownedjanitors[0][1]*5:
+            print('You do not have enough money to train this janitor.')
+          else:
+            money -= ownedjanitors[0][1]*5
+            ownedjanitors[0][1] += 1
+            print('You have trained '+ownedjanitors[0][0]+'!')
+  dirtiness = 10-len(ownedjanitors)
+  if dirtiness > 8:
+    print('Your customers are very displeased by the lack of janitors. Your clinic is very dirty.')
+  elif dirtiness > 5:
+    print('A few customers were annoyed by the lack of janitors. Your clinic is somewhat dirty.')
+  elif dirtiness > 3:
+    print('Your janitors are doing well. Your clinic is nearly spotless.')
+  else:
+    print('Customers are impressed and very happy with the amount of janitors and cleanliness of your clinic. Your clinic is spotless.')
   if random.randint(1, 10) != 1:
-    num = random.randint(1, 4)
+    print()
+    print('The phone begins to ring. you pick it up.')
+    input('Press ENTER to continue.')
+    num = random.randint(1, 11)
     if num == 1 and not callOne:
+      print('\n'*5)
       money += Calls.call1()
       callOne = True
     elif num == 2 and not callTwo:
+      print('\n'*5)
       money += Calls.call2()
       callTwo = True
     elif num == 3 and not callThree:
+      print('\n'*5)
       money += Calls.call3()
       callThree = True
     elif num == 4 and not callFour:
+      print('\n'*5)
       money += Calls.call4(money)
       callFour = True
+    elif num == 5 and not callFive:
+      print('\n'*5)
+      money += Calls.call5()
+      callFive = True
+    elif num == 6 and not callSix:
+      print('\n'*5)
+      money += Calls.call6()
+      callSix = True
+    elif num == 7 and not callSeven:
+      print('\n'*5)
+      money += Calls.call7()
+      callSeven = True
+    elif num == 8 and not callEight:
+      print('\n'*5)
+      money += Calls.call8()
+      callEight = True
+    elif num == 9 and not callNine:
+      print('\n'*5)
+      money += Calls.call9()
+      callNine = True
+    elif num == 10 and not callTen:
+      print('\n'*5)
+      money += Calls.call10()
+      callTen = True
+    elif num == 11 and not callEleven:
+      print('\n'*5)
+      money += Calls.call11()
+      callEleven = True
+  income = random.randint(100000, 500000)*(len(ownedDoctors)+(len(ownedNurses)/2))
+  income /= 365
+  if receptionist == 'None':
+    income = 0
+  total = income-doctorCost*len(ownedDoctors)-nurseCost*len(ownedNurses)-janitorCost*len(ownedjanitors)
+  if receptionist != 'None':
+    total -= receptionistCost
+  total = round(total, 2)
+  money+=total
+  print('You have made $'+str(total)+' today.')
