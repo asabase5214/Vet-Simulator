@@ -1,4 +1,6 @@
-import random, MaleNames, FemaleNames, Surnames
+import random, MaleNames, FemaleNames, Surnames, Calls
+
+money = 100
 
 def generateName(gender):
   if gender == 'male':
@@ -10,10 +12,9 @@ def generateName(gender):
   last = random.choice(Surnames.surnames)
   return first + ' ' + middle + ' ' + last
 
-money = 100
 ownedDoctors = []
 ownedNurses = []
-receptionist = 'nobody'
+receptionist = 'None'
 
 
 print('Welcome to West Valley Clinic! Your uncle recently retired, and has handed this clinic down to YOU! Good luck!')
@@ -23,7 +24,6 @@ while True:
   print('1. Hire staff.')
   print('2. View staff.')
   print('3. Train staff.')
-  print(f'4. Upgrade equipment. You have ${money} to spend.')
   answer = input('> ')
   if answer == '1':
     print('Choose which kind of staff you would like to hire.')
@@ -192,7 +192,7 @@ while True:
       print('. '+ownedNurses[i][0]+'.', end="")
       print(' Rating: '+str(ownedNurses[i][1])+' stars.')
     print('Receptionist:')
-    print(receptionist)
+    print(receptionist[0])
     print('Janitor(s):')
     print('None')
   elif answer == '3':
@@ -217,3 +217,44 @@ while True:
             money -= ownedDoctors[0][1]*5
             ownedDoctors[0][1] += 1
             print('You have trained '+ownedDoctors[0][0]+'!')
+    elif answer == '2':
+      if len(ownedNurses) > 0:
+        for i in range(len(ownedNurses)):
+          print(i+1, end="")
+          print('. '+ownedNurses[i][0]+'.', end="")
+          print(' Rating: '+str(ownedNurses[i][1])+' stars.')
+        answer = input('> ')
+        if answer == '1':
+          print(f'It will cost ${ownedNurses[0][1]*5} to train this nurse.')
+          if money < ownedNurses[0][1]*5:
+            print('You do not have enough money to train this nurse.')
+          else:
+            money -= ownedNurse[0][1]*5
+            ownedNurses[0][1] += 1
+            print('You have trained '+ownedNurses[0][0]+'!')
+    elif answer == '3':
+      if len(receptionist) > 0:
+        print(i+1, end="")
+        print('. '+receptionist[0]+'.', end="")
+        print(' Rating: '+str(receptionist[1])+' stars.')
+        answer = input('> ')
+        if answer == '1':
+          print(f'It will cost ${receptionist[1]*5} to train this receptionist.')
+          if money < receptionist[1]*5:
+            print('You do not have enough money to train this receptionist.')
+          else:
+            money -= receptionist[1]*5
+            receptionist[1] += 1
+            print('You have trained '+receptionist[0]+'!')
+    elif answer == '4':
+      print('You do not have any janitors to train.')
+  if random.randint(1, 10) != 1:
+    num = random.randint(1, 4)
+    if num == 1:
+      money += Calls.call1()
+    elif num == 2:
+      money += Calls.call2()
+    elif num == 3:
+      money += Calls.call3()
+    elif num == 4:
+      money += Calls.call4(money)
