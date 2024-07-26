@@ -142,7 +142,7 @@ def call3():
     return earned
 
 def call4(money):
-  print(f'YOU: Hello, West Valley Clinic, how may I help you? CALLER: Hello, this is the IRS. We have noticed some irregularities in your tax filings. You owe a substantial amount of money and it needs to be paid immediately to avoid severe consequences.')
+  print(f'YOU: Hello, West Valley Clinic, how may I help you? CALLER: Hello, this is the IRS. We have noticed some irregularities in your tax filings. You owe a substantial amount of money and you are required by law to pay immediately to avoid severe consequences.')
   print()
   print('1. Oh no, I wasn\'t aware of any issues with my taxes.')
   print('2. Oops! How can I fix that?')
@@ -317,4 +317,88 @@ def call11():
     return -35
 
 def call12():
-  print(f'YOU: Hello, West Valley Clinic, how may I help you? CALLER: Hello, I wanted to schedule a checkup for my {random.choice(animals)}. Does Thursday at 9 work? YOU: Yes, Thursday is fine. CALLER: Okay, thank you. Goodbye.') 
+  print(f'YOU: Hello, West Valley Clinic, how may I help you? CALLER: Hello, I wanted to schedule a checkup for my {random.choice(animals)}. Does Thursday at 9 work? YOU: Yes, Thursday is fine. CALLER: Okay, thank you. Goodbye.')
+
+def call13(ownedUpgrades):
+  clinic = False
+  annoyed = False
+  print(f'YOU: Hello, West Valley Clinic, how may I help you? CALLER: Hello, does your clinic offer flea medicine?')
+  print()
+  print('Yes, we do.')
+  print('No, we do not. I am sorry.')
+  print('I don\'t even know what fleas are.')
+  answer = input('> ')
+  if answer == '1':
+    print('YOU: Yes, we do. CALLER: Okay, thank you. I\'ll come by tommorrow to pick some up. Thank you, goodbye.')
+    if ['On-Site Pharmacy', 10_000] in ownedUpgrades:
+      clinic = True
+    else:
+      annoyed = True
+  elif answer == '2':
+    print('YOU: No, we do not. I am sorry. CALLER: Oh, okay. Thank you. Goodbye.')
+  elif answer == '3':
+    print('YOU: I don\'t even know what fleas are. CALLER: Oh... um, okay. Goodbye.')
+  if clinic:
+    earned = random.randint(50, 100)
+    print(f'The caller arrives, and their clinic is taken care of. You earn {earned} dollars.')
+    return earned
+  elif annoyed:
+    print('The caller comes by and finds out that your clinic does not offer flea medicine. They are very upset, and they leave. You earn no money.')
+  return 0
+
+def call14():
+  print(f'YOU: Hello, West Valley Clinic, how may I help you? CALLER: Hello, I wanted to ask when I could stop by and get my cat his rabies vaccine.')
+  print()
+  print('1. Does Tuesday at 10 work for you?')
+  print('2. Never!')
+  answer = input('> ')
+  if answer == '1':
+    print('YOU: Does Tuesday at 10 work for you? CALLER: Uh, let\'s see... Yes, that\'s fine. Thank you.')
+    clinic = True
+  elif answer == '2':
+    print(f'YOU: Never! CALLER: Never?! But... But... Billy...')
+    clinic = False
+  if clinic:
+    earned = random.randint(40, 100)
+    print(f'The caller arrives, and their cat is taken care of. You earn {earned} dollars.')
+    return earned
+  return 0
+
+def call15(ownedUpgrades):
+  clinic = False
+  annoyed = False
+  print(f'YOU: Hello, West Valley Clinic, how may I help you? CALLER: Hello, I wanted to know if you offer pet grooming services and would like to schedule a grooming for my cat.')
+  print()
+  print('1. Yes, we do offer pet grooming services.')
+  print('2. No, we do not offer pet grooming services. I\'m sorry.')
+  answer = input('> ')
+  if answer == '1':
+    print('YOU: Yes, we do offer pet grooming services. CALLER: Okay, thank you. I\'ll come by tommorrow to get my cat groomed. Thank you, goodbye.')
+    if ['Grooming Stations', 5_000] in ownedUpgrades:
+      clinic = True
+    else:
+      annoyed = True
+  elif answer == '2':
+    print('YOU: No, we do not offer pet grooming services. I\'m sorry. CALLER: Oh, okay. Thank you. Goodbye.')
+  if clinic:
+    earned = random.randint(40, 100)
+    print(f'The caller arrives, and their cat is taken care of. You earn {earned} dollars.')
+    return earned
+  elif annoyed:
+    print('The caller comes by and finds out that your clinic does not offer pet grooming services. They are very upset, and they leave. You earn no money.')
+  return 0
+
+def call16():
+  annoyed = False
+  print('YOU: Hello, West Valley Clinic, how may I help you? CALLER: Hello, I was wondering if you have any cats available for adoption.')
+  print()
+  print('1. Yes, we do have cats available for adoption.')
+  print(f'2. No, we do not have any cats available for adoption. I\'m sorry.')
+  answer = input('> ')
+  if answer == '1':
+    print('YOU: Yes, we do have cats available for adoption. CALLER: Okay, thank you. I\'ll come by tommorrow to get my cat adopted. Thank you, goodbye.')
+    annoyed = True
+  elif answer == '2':
+    print('YOU: No, we do not have any cats available for adoption. I\'m sorry. CALLER: Oh, okay. Thank you. Goodbye.')
+  if annoyed:
+    print('The caller comes by and finds out that you do not in fact have any cats up for adoption. They are very upset, and they leave. You earn no money.')
