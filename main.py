@@ -550,6 +550,8 @@ while True:
     income += ownedDoctors[i][1]*10000
   for i in range(len(ownedNurses)):
     income += ownedNurses[i][1]*10000
+  income+=len(ownedUpgrades)*100_000
+  income+=len(ownedToolUpgrades)*100_000
   income /= 365
   if receptionist == 'None':
     income = 0
