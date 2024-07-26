@@ -178,13 +178,13 @@ def call5():
   print(f'YOU: Hello, West Valley Clinic, how may I help you? CALLER: Hello. I have a cat named Emmie. She has been acting strangely lately, not eating or drinking, barely sleeping. What should I do?')
   print()
   print('1. That doesn\'t sound very good. Bring to the clinic when you can, and we\'ll see what we can do.')
-  print('2. Uh oh. Sounds like your cat is going to die. I\'m sorry. If you want you could, like, come here, and we could kill her with our... what\'re they called? Ah, yes we could euthanize her if ya like.')
+  print('2. Uh oh. Sounds like your cat is going to die.')
   answer = input('> ')
   if answer == '1':
     print('YOU: That doesn\'t sound very good. Bring to the clinic when you can, and we\'ll see what we can do. CALLER: Is tommorrow at 8:30 am okay? YOU: Yes that\'s fine. CALLER: Okay, thank you. Goodbye.')
     clinic = True
   elif answer == '2':
-    print('YOU: Uh oh. Sounds like your cat is going to die. I\'m sorry. If you want you could, like, come here, and we could kill her with our... what\'re they called? Ah, yes we could euthanize her if ya like. CALLER: What?! No! Emmie! I can\'t bear the thought of losing her! I\'ve had for eleven years. She\'s helped me through some terrible times. [pauses] I wish I could have spent more time with her. I\'m sorry. Goodbye.')
+    print('YOU: Uh oh. Sounds like your cat is going to die. CALLER: What?! No! Emmie! I can\'t bear the thought of losing her! I\'ve had for eleven years. She\'s helped me through some terrible times. [pauses] I wish I could have spent more time with her. I\'m sorry. Goodbye.')
   if clinic:
     earned = random.randint(40, 100)
     print(f'The caller arrives, and their cat is taken care of. You earn {earned} dollars.')
@@ -315,3 +315,6 @@ def call11():
   else:
     print('The dog owner arrives, and found that they were very much misinformed about the process of getting an animal microchipped. They are very upset, and they refuse to pay. You lose $35 for the cost of the microchip.')
     return -35
+
+def call12():
+  print(f'YOU: Hello, West Valley Clinic, how may I help you? CALLER: Hello, I wanted to schedule a checkup for my {random.choice(animals)}. Does Thursday at 9 work? YOU: Yes, Thursday is fine. CALLER: Okay, thank you. Goodbye.') 
