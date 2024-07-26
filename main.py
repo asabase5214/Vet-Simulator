@@ -35,7 +35,7 @@ try:
   cost = random.randint(1_000, 2_000)
   
   
-  print("YOU recently moved into a small town called West Valley, which got its name because it is located in between to mountains. Your uncle, the beloved owner of West Valley Animal Clinic, has entrusted you with the keys to this bustling clinic. Are you ready to embark on a journey to care for creatures great and small? The future of West Valley Clinic is in your hands. You have 1 year to get the clinic back into business. Are you ready?")
+  print("YOU recently moved into a small town called West Valley, which got its name because it is located in between to mountains. Your uncle, the beloved owner of West Valley Animal Clinic, has entrusted you with the keys to this bustling clinic. Are you ready to embark on a journey to care for creatures great and  small? The future of West Valley Clinic is in your hands. You have 1 year to get the clinic back into business. Are you ready?")
   input('Press ENTER to start!')
   
   for i in range(365):
@@ -194,7 +194,7 @@ try:
             print('You have hired '+recepts[2][0]+' as a receptionist.')
             money -= recepts[2][1]*10
             receptionist = recepts[2]
-        elif answer == '3' and numOfNurses == 3:
+        elif answer == '3' and numOfRecepts == 3:
           if money < recepts[3][1]*10:
             print('You do not have enough money to hire this receptionist.')
           else:
@@ -571,65 +571,61 @@ try:
           print('You do not have enough money to buy this upgrade.')
         else:
           money -= unownedUpgrades[0][1]
-          unownedUpgrades.pop(0)
           ownedUpgrades.append(unownedUpgrades[0])
-          print('You have bought '+ownedUpgrades[0][0]+'!')
+          unownedUpgrades.pop(0)
       elif answer == '2' and len(unownedUpgrades) > 1:
         if money < unownedUpgrades[1][1]:
           print('You do not have enough money to buy this upgrade.')
         else:
           money -= unownedUpgrades[1][1]
-          unownedUpgrades.pop(1)
           ownedUpgrades.append(unownedUpgrades[1])
-          print('You have bought '+ownedUpgrades[1][0]+'!')
+          unownedUpgrades.pop(1)
       elif answer == '3' and len(unownedUpgrades) > 2:
         if money < unownedUpgrades[2][1]:
           print('You do not have enough money to buy this upgrade.')
         else:
           money -= unownedUpgrades[2][1]
-          unownedUpgrades.pop(2)
           ownedUpgrades.append(unownedUpgrades[2])
-          print('You have bought '+ownedUpgrades[2][0]+'!')
+          unownedUpgrades.pop(2)
       elif answer == '4' and len(unownedUpgrades) > 3:
         if money < unownedUpgrades[3][1]:
           print('You do not have enough money to buy this upgrade.')
         else:
           money -= unownedUpgrades[3][1]
-          unownedUpgrades.pop(3)
           ownedUpgrades.append(unownedUpgrades[3])
-          print('You have bought '+ownedUpgrades[3][0]+'!')
+          unownedUpgrades.pop(3)
       elif answer == '5' and len(unownedUpgrades) > 4:
         if money < unownedUpgrades[4][1]:
           print('You do not have enough money to buy this upgrade.')
         else:
           money -= unownedUpgrades[4][1]
-          unownedUpgrades.pop(4)
+       
           ownedUpgrades.append(unownedUpgrades[4])
-          print('You have bought '+ownedUpgrades[4][0]+'!')
+          unownedUpgrades.pop(4)
       elif answer == '6' and len(unownedUpgrades) > 5:
         if money < unownedUpgrades[5][1]:
           print('You do not have enough money to buy this upgrade.')
         else:
           money -= unownedUpgrades[5][1]
-          unownedUpgrades.pop(5)
+       
           ownedUpgrades.append(unownedUpgrades[5])
-          print('You have bought '+ownedUpgrades[5][0]+'!')
+          unownedUpgrades.pop(5)
       elif answer == '7' and len(unownedUpgrades) > 6:
         if money < unownedUpgrades[6][1]:
           print('You do not have enough money to buy this upgrade.')
         else:
           money -= unownedUpgrades[6][1]
-          unownedUpgrades.pop(6)
+       
           ownedUpgrades.append(unownedUpgrades[6])
-          print('You have bought '+ownedUpgrades[6][0]+'!')
+          unownedUpgrades.pop(6)
       elif answer == '8' and len(unownedUpgrades) > 7:
         if money < unownedUpgrades[7][1]:
           print('You do not have enough money to buy this upgrade.')
         else:
           money -= unownedUpgrades[7][1]
-          unownedUpgrades.pop(7)
+       
           ownedUpgrades.append(unownedUpgrades[7])
-          print('You have bought '+ownedUpgrades[7][0]+'!')
+          unownedUpgrades.pop(7)
     elif answer == '6':
       for i in range(len(unownedToolUpgrades)):
         print(str(i+1) + '. ', end="")
@@ -642,49 +638,43 @@ try:
           print('You do not have enough money to buy this upgrade.')
         else:
           money -= unownedToolUpgrades[0][1]
-          unownedToolUpgrades.pop(0)
           ownedToolUpgrades.append(unownedToolUpgrades[0])
-          print('You have bought '+ownedToolUpgrades[0][0]+'!')
+          unownedToolUpgrades.pop(0)
       elif answer == '2' and len(unownedToolUpgrades) > 1:
         if money < unownedToolUpgrades[1][1]:
           print('You do not have enough money to buy this upgrade.')
         else:
           money -= unownedToolUpgrades[1][1]
-          unownedToolUpgrades.pop(1)
           ownedToolUpgrades.append(unownedToolUpgrades[1])
-          print('You have bought '+ownedToolUpgrades[1][0]+'!')
+          unownedToolUpgrades.pop(1)
       elif answer == '3' and len(unownedToolUpgrades) > 2:
         if money < unownedToolUpgrades[2][1]:
           print('You do not have enough money to buy this upgrade.')
         else:
           money -= unownedToolUpgrades[2][1]
-          unownedToolUpgrades.pop(2)
           ownedToolUpgrades.append(unownedToolUpgrades[2])
-          print('You have bought '+ownedToolUpgrades[2][0]+'!')
+          unownedToolUpgrades.pop(2)
       elif answer == '4' and len(unownedToolUpgrades) > 3:
         if money < unownedToolUpgrades[3][1]:
           print('You do not have enough money to buy this upgrade.')
         else:
           money -= unownedToolUpgrades[3][1]
-          unownedToolUpgrades.pop(3)
           ownedToolUpgrades.append(unownedToolUpgrades[3])
-          print('You have bought '+ownedToolUpgrades[3][0]+'!')
+          unownedToolUpgrades.pop(3)
       elif answer == '5' and len(unownedToolUpgrades) > 4:
         if money < unownedToolUpgrades[4][1]:
           print('You do not have enough money to buy this upgrade.')
         else:
+          ownedToolUpgrades.append(unownedToolUpgrades[4])
           money -= unownedToolUpgrades[4][1]
           unownedToolUpgrades.pop(4)
-          ownedToolUpgrades.append(unownedToolUpgrades[4])
-          print('You have bought '+ownedToolUpgrades[4][0]+'!')
       elif answer == '6' and len(unownedToolUpgrades) > 5:
         if money < unownedToolUpgrades[5][1]:
           print('You do not have enough money to buy this upgrade.')
         else:
+          ownedToolUpgrades.append(unownedToolUpgrades[5])
           money -= unownedToolUpgrades[5][1]
           unownedToolUpgrades.pop(5)
-          ownedToolUpgrades.append(unownedToolUpgrades[5])
-          print('You have bought '+ownedToolUpgrades[5][0]+'!')
     elif answer == '7':
       if len(ownedUpgrades) > 0:
         print('Here are your upgrades:')
@@ -853,6 +843,3 @@ except KeyboardInterrupt:
   print(f'Upgrades: {len(ownedUpgrades)+len(ownedToolUpgrades)}')
   time.sleep(3)
   print('Thank you for playing Animal Clinic Simulator, even though you never got the call from the rabbit owner.')
-
-except Exception as e:
-  print(e)

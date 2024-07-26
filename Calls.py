@@ -316,7 +316,7 @@ def call11():
     print('The dog owner arrives, and found that they were very much misinformed about the process of getting an animal microchipped. They are very upset, and they refuse to pay. You lose $35 for the cost of the microchip.')
     return -35
 
-def call12():
+def call12(animals):
   print(f'YOU: Hello, West Valley Clinic, how may I help you? CALLER: Hello, I wanted to schedule a checkup for my {random.choice(animals)}. Does Thursday at 9 work? YOU: Yes, Thursday is fine. CALLER: Okay, thank you. Goodbye.')
 
 def call13(ownedUpgrades):
@@ -324,9 +324,9 @@ def call13(ownedUpgrades):
   annoyed = False
   print(f'YOU: Hello, West Valley Clinic, how may I help you? CALLER: Hello, does your clinic offer flea medicine?')
   print()
-  print('Yes, we do.')
-  print('No, we do not. I am sorry.')
-  print('I don\'t even know what fleas are.')
+  print('1. Yes, we do.')
+  print('2. No, we do not. I am sorry.')
+  print('3. I don\'t even know what fleas are.')
   answer = input('> ')
   if answer == '1':
     print('YOU: Yes, we do. CALLER: Okay, thank you. I\'ll come by tommorrow to pick some up. Thank you, goodbye.')
@@ -388,17 +388,25 @@ def call15(ownedUpgrades):
     print('The caller comes by and finds out that your clinic does not offer pet grooming services. They are very upset, and they leave. You earn no money.')
   return 0
 
-def call16():
+def call16(ownedUpgrades):
   annoyed = False
   print('YOU: Hello, West Valley Clinic, how may I help you? CALLER: Hello, I was wondering if you have any cats available for adoption.')
   print()
   print('1. Yes, we do have cats available for adoption.')
-  print(f'2. No, we do not have any cats available for adoption. I\'m sorry.')
+  print('2. No, we do not have any cats available for adoption. I\'m sorry.')
   answer = input('> ')
   if answer == '1':
     print('YOU: Yes, we do have cats available for adoption. CALLER: Okay, thank you. I\'ll come by tommorrow to get my cat adopted. Thank you, goodbye.')
-    annoyed = True
+    if ['Cat Lounge', 5_000] in ownedUpgrades:
+      clinic = True
+    else:
+      annoyed = True
   elif answer == '2':
     print('YOU: No, we do not have any cats available for adoption. I\'m sorry. CALLER: Oh, okay. Thank you. Goodbye.')
   if annoyed:
     print('The caller comes by and finds out that you do not in fact have any cats up for adoption. They are very upset, and they leave. You earn no money.')
+    return 0
+  elif clinic:
+    print('The caller comes by and chooses one of your cats that were available, and you earn $120.')
+    return 120
+  return 0
